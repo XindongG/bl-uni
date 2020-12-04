@@ -56,11 +56,13 @@
     "@dcloudio/uni-quickapp-webview": "^2.0.0-29820201110001",
     "@dcloudio/uni-stat": "^2.0.0-29820201110001",
     "@vue/shared": "^3.0.0",
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "flyio": "^0.6.2",
     "regenerator-runtime": "^0.12.1",
+    "vant": "^2.11.1",
     "vue": "^2.6.11",
-    "vuex": "^3.2.0"
+    "vuex": "^3.6.0"
   },
   "devDependencies": {
     "@dcloudio/types": "*",

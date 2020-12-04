@@ -2,28 +2,29 @@
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
 		<view>
-			<text class="title" @click="goPage">{{title}}</text>
+			<text class="title">{{detail}}</text>
 		</view>
 	</view>
 </template>
 
 <script>
-	export default {
+  import { mapActions, mapState, mapMutations, mapGetters } from "vuex";
+  export default {
 		data() {
 			return {
-				title: 'Hello'
 			}
 		},
 		onLoad() {
 
 		},
 		methods: {
-      goPage(){
-        uni.navigateTo({
-          url: "../detail/detail"
-        });
-      }
-		}
+
+		},
+    computed: {
+      ...mapState({
+        detail: store => store.detailStore.title
+      }),
+    }
 	}
 </script>
 
