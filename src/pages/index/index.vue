@@ -8,23 +8,24 @@
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
+export default {
+	data() {
+		return {
+			title: 'Hello'
+		};
+	},
+	onLoad() {
 
-		},
-		methods: {
-      goPage(){
-        uni.navigateTo({
-          url: "../detail/detail"
-        });
-      }
+	},
+	methods: {
+		goPage(){
+			console.log(uni);
+			// this.uni.navigateTo({
+			// 	url: "../detail/detail"
+			// });
 		}
 	}
+};
 </script>
 
 <style>

@@ -57,7 +57,10 @@
     "@dcloudio/uni-stat": "^2.0.0-29820201110001",
     "@vue/shared": "^3.0.0",
     "axios": "^0.21.0",
+    "babel-eslint": "^10.1.0",
     "core-js": "^3.6.5",
+    "eslint": "^7.14.0",
+    "eslint-plugin-vue": "^7.2.0",
     "flyio": "^0.6.2",
     "regenerator-runtime": "^0.12.1",
     "vant": "^2.11.1",
@@ -89,6 +92,125 @@
     "Android >= 4",
     "ios >= 8"
   ],
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-console": "off",
+      "no-dupe-args": 2,
+      "eqeqeq": [
+        2,
+        "always"
+      ],
+      "block-spacing": [
+        2,
+        "always"
+      ],
+      "computed-property-spacing": [
+        2,
+        "never"
+      ],
+      "func-call-spacing": [
+        2,
+        "never"
+      ],
+      "no-dupe-keys": 2,
+      "no-duplicate-case": 2,
+      "no-empty": 2,
+      "no-extra-parens": 2,
+      "no-extra-semi": 2,
+      "no-inner-declarations": 2,
+      "no-sparse-arrays": 2,
+      "no-template-curly-in-string": 2,
+      "no-unreachable": 2,
+      "no-unsafe-finally": 2,
+      "no-unsafe-negation": 2,
+      "use-isnan": 2,
+      "no-lonely-if": 2,
+      "no-multiple-empty-lines": [
+        1,
+        {
+          "max": 2
+        }
+      ],
+      "key-spacing": [
+        2,
+        {
+          "beforeColon": false
+        }
+      ],
+      "keyword-spacing": [
+        2,
+        {
+          "overrides": {
+            "if": {
+              "after": false
+            },
+            "for": {
+              "after": false
+            },
+            "while": {
+              "after": false
+            }
+          }
+        }
+      ],
+      "vue/no-parsing-error": [
+        0,
+        {
+          "x-invalid-end-tag": false
+        }
+      ],
+      "no-extra-boolean-cast": "off",
+      "no-unused-vars": "off",
+      "indent": [
+        "error",
+        "tab"
+      ],
+      "no-tabs": "off",
+      "no-debugger": 2,
+      "no-mixed-spaces-and-tabs": "off",
+      "no-irregular-whitespace": 2,
+      "no-trailing-spaces": 2,
+      "linebreak-style": "off",
+      "semi": [
+        2,
+        "always"
+      ],
+      "no-alert": 0,
+      "quotes": "off",
+      "brace-style": [
+        2,
+        "1tbs",
+        {
+          "allowSingleLine": true
+        }
+      ],
+      "camelcase": 2,
+      "comma-dangle": [
+        2,
+        "never"
+      ],
+      "comma-spacing": [
+        2,
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "no-const-assign": 2,
+      "generator-star-spacing": "off"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
   "uni-app": {
     "scripts": {}
   }
