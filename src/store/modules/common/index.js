@@ -2,13 +2,13 @@ import getters from "./getters";
 import mutations from "./mutations";
 import actions from "./actions";
 import config from "@/config";
-const index = {
+const common = {
 	state: {
-		title:'detail'
+		userInfo: null
 	},
 	getters,
 	mutations,
 	actions
 };
 
-export default index;
+export default common;

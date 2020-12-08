@@ -63,6 +63,9 @@
 	"mp-alipay" : {
         "usingComponents" : true
     },
+	"h5" : {
+		"publicPath" : "./"
+	},
     "mp-baidu" : {
         "usingComponents" : true
     },

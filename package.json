@@ -5,16 +5,20 @@
   "scripts": {
     "serve": "npm run dev:h5",
     "build": "npm run build:h5",
+    "dev_test:h5": "cross-env NODE_ENV=test UNI_PLATFORM=h5 vue-cli-service uni-serve",
+    "dev_test:mp-weixin": "cross-env NODE_ENV=test UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch",
+    "build_test:h5": "cross-env NODE_ENV=test UNI_PLATFORM=h5 vue-cli-service uni-build",
+    "build_test:mp-weixin": "cross-env NODE_ENV=test UNI_PLATFORM=mp-weixin vue-cli-service uni-build",
+    "build:h5": "cross-env NODE_ENV=production UNI_PLATFORM=h5 vue-cli-service uni-build",
+    "build:mp-weixin": "cross-env NODE_ENV=production UNI_PLATFORM=mp-weixin vue-cli-service uni-build",
     "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",
     "build:custom": "cross-env NODE_ENV=production uniapp-cli custom",
-    "build:h5": "cross-env NODE_ENV=production UNI_PLATFORM=h5 vue-cli-service uni-build",
     "build:mp-360": "cross-env NODE_ENV=production UNI_PLATFORM=mp-360 vue-cli-service uni-build",
     "build:mp-alipay": "cross-env NODE_ENV=production UNI_PLATFORM=mp-alipay vue-cli-service uni-build",
     "build:mp-baidu": "cross-env NODE_ENV=production UNI_PLATFORM=mp-baidu vue-cli-service uni-build",
     "build:mp-kuaishou": "cross-env NODE_ENV=production UNI_PLATFORM=mp-kuaishou vue-cli-service uni-build",
     "build:mp-qq": "cross-env NODE_ENV=production UNI_PLATFORM=mp-qq vue-cli-service uni-build",
     "build:mp-toutiao": "cross-env NODE_ENV=production UNI_PLATFORM=mp-toutiao vue-cli-service uni-build",
-    "build:mp-weixin": "cross-env NODE_ENV=production UNI_PLATFORM=mp-weixin vue-cli-service uni-build",
     "build:quickapp-native": "cross-env NODE_ENV=production UNI_PLATFORM=quickapp-native vue-cli-service uni-build",
     "build:quickapp-webview": "cross-env NODE_ENV=production UNI_PLATFORM=quickapp-webview vue-cli-service uni-build",
     "build:quickapp-webview-huawei": "cross-env NODE_ENV=production UNI_PLATFORM=quickapp-webview-huawei vue-cli-service uni-build",
@@ -62,8 +66,10 @@
     "eslint": "^7.14.0",
     "eslint-plugin-vue": "^7.2.0",
     "flyio": "^0.6.2",
+    "less": "^3.12.2",
+    "less-loader": "^7.1.0",
     "regenerator-runtime": "^0.12.1",
-    "vant": "^2.11.1",
+    "vconsole": "^3.3.4",
     "vue": "^2.6.11",
     "vuex": "^3.6.0"
   },
@@ -96,6 +102,9 @@
     "root": true,
     "env": {
       "node": true
+    },
+    "globals": {
+      "uni": true
     },
     "extends": [
       "plugin:vue/essential",

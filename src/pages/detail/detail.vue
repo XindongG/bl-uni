@@ -1,33 +1,35 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
 		<view>
-			<text class="title">{{detail}}</text>
+			<text class="title" @click="routerBack">返回！！</text>
 		</view>
 	</view>
 </template>
 
 <script>
-  import { mapActions, mapState, mapMutations, mapGetters } from "vuex";
-  export default {
-		data() {
-			return {
-			}
-		},
-		onLoad() {
+import { mapActions, mapState, mapMutations, mapGetters } from "vuex";
+export default {
+	data() {
+		return {
+		};
+	},
+	onLoad() {
 
-		},
-		methods: {
-
-		},
-    computed: {
-      ...mapState({
-        detail: store => store.detailStore.title
-      }),
-    }
+	},
+	created() {
+	},
+	methods: {
+		routerBack(){
+			uni.navigateBack();
+		}
+	},
+	computed: {
+		...mapState({
+			detail: store => store.commonStore.title
+		})
 	}
+};
 </script>
-
 <style>
 	.content {
 		display: flex;

@@ -1,29 +1,46 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
 		<view>
 			<text class="title" @click="goPage">{{title}}</text>
 		</view>
+    <UserList :userInfo="userInfo" v-if="userInfo"/>
 	</view>
 </template>
-
 <script>
+import { mapActions, mapState, mapMutations, mapGetters } from "vuex";
+import UserList from './components/UserList';
 export default {
 	data() {
 		return {
-			title: 'Hello'
+			title: '点我跳转'
 		};
 	},
+	components: {
+		UserList: UserList
+	},
 	onLoad() {
-
+	  console.log(process.env.NODE_ENV);
+		this.getUserInfo().then(data=>{
+			console.log('请求成功啦！➡️', data);
+		}).catch(err=>{
+			console.log('请求失败啦！➡️', err);
+		});
 	},
 	methods: {
+		...mapMutations({
+			setUserInfo: "SET_USERINFO"
+		}),
+		...mapActions(["getUserInfo"]),
 		goPage(){
-			console.log(uni);
-			// this.uni.navigateTo({
-			// 	url: "../detail/detail"
-			// });
+			uni.navigateTo({
+				url: "../detail/detail"
+			});
 		}
+	},
+	computed: {
+		...mapState({
+			userInfo: store => store.commonStore.userInfo
+		})
 	}
 };
 </script>
@@ -35,18 +52,6 @@ export default {
 		align-items: center;
 		justify-content: center;
 	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
 	.title {
 		font-size: 36rpx;
 		color: #8f8f94;
