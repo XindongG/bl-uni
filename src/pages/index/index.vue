@@ -19,7 +19,10 @@ export default {
 		UserList: UserList
 	},
 	onLoad() {
-	  console.log(process.env.NODE_ENV);
+
+	},
+	mounted () {
+		console.log(process.env);
 		this.getUserInfo().then(data=>{
 			console.log('请求成功啦！➡️', data);
 		}).catch(err=>{
@@ -32,9 +35,10 @@ export default {
 		}),
 		...mapActions(["getUserInfo"]),
 		goPage(){
-			uni.navigateTo({
-				url: "../detail/detail"
-			});
+			this.$Router.push('/pages/detail/detail');
+			// uni.navigateTo({
+			// 	url: "../detail/detail"
+			// });
 		}
 	},
 	computed: {

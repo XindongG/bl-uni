@@ -30,6 +30,7 @@ instance.interceptors.request.use(function (config) {
 	loading(true)();
 	return config;
 }, function (error) {
+	loading(false);
 	return Promise.reject(error);
 });
 // 响应拦截
@@ -37,6 +38,7 @@ instance.interceptors.response.use(function (response) {
 	loading(false);
 	return response;
 }, function (error) {
+	loading(false);
 	return Promise.reject(error);
 });
 class Request {

@@ -1,9 +1,5 @@
-const path = require("path");
-const TerserPlugin = require("terser-webpack-plugin");
-
-function resolve(dir) {
-	return path.join(__dirname, "./", dir);
-}
+const TransformPages = require('uni-read-pages');
+const {webpack} = new TransformPages();
 
 module.exports = {
 	devServer: {
@@ -24,22 +20,17 @@ module.exports = {
 		}
 	},
 	configureWebpack: config => {
-		if(process.env.NODE_ENV === 'production') {
-			config.plugins.push(
-				new TerserPlugin({
-					terserOptions: {
-						ecma: undefined,
-						warnings: false,
-						parse: {},
-						compress: {
-							"drop_console": true,
-							"drop_debugger": false,
-							"pure_funcs": [ 'console.log' ] // 移除console
-						}
-					}
-				})
-			);
-		}
+		config.plugins.push(
+			new webpack.DefinePlugin({
+				ROUTES: webpack.DefinePlugin.runtimeValue(() => {
+					const tfPages = new TransformPages({
+						includes: ['path', 'name', 'aliasPath']
+					});
+					return JSON.stringify(tfPages.routes);
+				}, true )
+			})
+		);
+
 	},
 	chainWebpack: config => {
 		config.resolve.symlinks(true);
@@ -56,10 +47,5 @@ module.exports = {
 			})
 			.end();
 	},
-	productionSourceMap: process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test',
-	css: {
-		extract: true,
-		sourceMap: false,
-		modules: false
-	}
+	productionSourceMap: process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test'
 };

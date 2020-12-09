@@ -16,4 +16,4 @@ const modeUrlObj = {
 		baseURL: "/api"
 	}
 };
-export default modeUrlObj[process.env.NODE_ENV];
+export default modeUrlObj[process.env.VUE_APP_ENV];
